@@ -1,0 +1,21 @@
+{
+	"nodes":[
+		{"id":"1da1af56a49b2c5f","type":"file","file":"notes/types.md","x":-165,"y":-186,"width":400,"height":400},
+		{"id":"128dd650fc87969c","type":"file","file":"notes/регистры процессора.md","x":400,"y":-186,"width":400,"height":400},
+		{"id":"f986fad9df6077aa","type":"file","file":"notes/Сегменты.md","x":400,"y":400,"width":400,"height":400},
+		{"id":"b5a843ca0fb8b11f","type":"file","file":"notes/mov, movsxd и movsx.md","x":1080,"y":400,"width":400,"height":400},
+		{"id":"6afe9bcc3db132d6","type":"file","file":"notes/сложение и вычитание.md","x":1080,"y":-186,"width":400,"height":400},
+		{"id":"2224fac6d9478649","type":"file","file":"notes/инструкция jmp.md","x":1800,"y":-186,"width":400,"height":400},
+		{"id":"24eb13e58ce44c80","type":"file","file":"notes/флаги состояния и условные переходы.md","x":1800,"y":400,"width":400,"height":400},
+		{"id":"0dea707935a17a6d","x":1800,"y":1000,"width":400,"height":400,"type":"file","file":"notes/сравнение. инструкция cmp.md"}
+	],
+	"edges":[
+		{"id":"bc01df54440a01e8","fromNode":"1da1af56a49b2c5f","fromSide":"right","toNode":"128dd650fc87969c","toSide":"left"},
+		{"id":"adba2860835130b2","fromNode":"128dd650fc87969c","fromSide":"bottom","toNode":"f986fad9df6077aa","toSide":"top"},
+		{"id":"73221f57d72f06b2","fromNode":"f986fad9df6077aa","fromSide":"right","toNode":"b5a843ca0fb8b11f","toSide":"left"},
+		{"id":"aa3ad159afd86f5c","fromNode":"b5a843ca0fb8b11f","fromSide":"top","toNode":"6afe9bcc3db132d6","toSide":"bottom"},
+		{"id":"11b543891b1adc2f","fromNode":"6afe9bcc3db132d6","fromSide":"right","toNode":"2224fac6d9478649","toSide":"left"},
+		{"id":"d3d961975a86a3be","fromNode":"2224fac6d9478649","fromSide":"bottom","toNode":"24eb13e58ce44c80","toSide":"top"},
+		{"id":"792cd8fba33a3709","fromNode":"24eb13e58ce44c80","fromSide":"bottom","toNode":"0dea707935a17a6d","toSide":"top"}
+	]
+}

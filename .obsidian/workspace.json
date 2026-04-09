@@ -176,14 +176,14 @@
       "bases:Создать новую базу": false
     }
   },
-  "active": "e30b15e28400eee0",
+  "active": "524b91c9b193918b",
   "lastOpenFiles": [
     "notes/сложение и вычитание.md",
     "notes/Сегменты.md",
     "notes/регистры процессора.md",
+    "notes/mov, movsxd и movsx.md",
     "notes/инструкция jmp.md",
     "notes/types.md",
-    "notes/mov, movsxd и movsx.md",
     "notes",
     "Pasted image 20260409200346.png",
     "notes.md"

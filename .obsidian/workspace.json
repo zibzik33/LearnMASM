@@ -11,14 +11,10 @@
             "id": "e30b15e28400eee0",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "notes/инструкция jmp.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "инструкция jmp"
+              "title": "Новая вкладка"
             }
           }
         ]
@@ -94,7 +90,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "notes/инструкция jmp.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +99,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Обратные ссылки для инструкция jmp"
+              "title": "Обратные ссылки"
             }
           },
           {
@@ -113,12 +108,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "notes/инструкция jmp.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Исходящие ссылки из инструкция jmp"
+              "title": "Исходящие ссылки"
             }
           },
           {
@@ -156,13 +150,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "notes/инструкция jmp.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Структура инструкция jmp"
+              "title": "Структура"
             }
           }
         ]
@@ -185,14 +178,14 @@
   },
   "active": "e30b15e28400eee0",
   "lastOpenFiles": [
+    "notes/сложение и вычитание.md",
+    "notes/Сегменты.md",
     "notes/регистры процессора.md",
     "notes/инструкция jmp.md",
-    "notes/mov, movsxd и movsx.md",
-    "notes/Сегменты.md",
-    "notes/сложение и вычитание.md",
     "notes/types.md",
+    "notes/mov, movsxd и movsx.md",
+    "notes",
     "Pasted image 20260409200346.png",
-    "notes.md",
-    "notes"
+    "notes.md"
   ]
 }

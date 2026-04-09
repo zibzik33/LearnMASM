@@ -4,24 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "ac2f92d79a334a56",
+        "id": "217585e9b91d9071",
         "type": "tabs",
         "children": [
           {
-            "id": "e30b15e28400eee0",
+            "id": "e886acf8a660141e",
             "type": "leaf",
             "state": {
-              "type": "canvas",
-              "state": {
-                "file": "notes/roadmap.canvas",
-                "viewState": {
-                  "x": 2034.527625444005,
-                  "y": 830.7300981389213,
-                  "zoom": -1.9999999999999998
-                }
-              },
-              "icon": "lucide-layout-dashboard",
-              "title": "roadmap"
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "Новая вкладка"
             }
           }
         ]
@@ -183,19 +176,21 @@
       "bases:Создать новую базу": false
     }
   },
-  "active": "e30b15e28400eee0",
+  "active": "e886acf8a660141e",
   "lastOpenFiles": [
-    "notes/roadmap.canvas",
-    "notes/сравнение. инструкция cmp.md",
-    "notes/инструкция jmp.md",
-    "notes/регистры процессора.md",
-    "notes/сложение и вычитание.md",
+    "notes/canvases/roadmap masm.canvas",
+    "notes/инструкции условного копирования.md",
+    "notes/canvases",
     "notes/mov, movsxd и movsx.md",
-    "notes/Сегменты.md",
-    "notes/types.md",
     "notes/флаги состояния и условные переходы.md",
-    "notes",
+    "notes/сравнение. инструкция cmp.md",
+    "notes/сложение и вычитание.md",
+    "notes/Сегменты.md",
+    "notes/регистры процессора.md",
+    "notes/инструкция jmp.md",
     "Pasted image 20260409200346.png",
+    "notes/types.md",
+    "notes",
     "notes.md"
   ]
 }

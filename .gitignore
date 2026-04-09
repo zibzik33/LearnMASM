@@ -1,0 +1,4 @@
+.obsidian
+scripts/bash/core/paths.txt
+build/*
+.cache/*

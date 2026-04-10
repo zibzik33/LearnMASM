@@ -11,10 +11,14 @@
             "id": "a84d3f0cd4a6d31e",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "notes/сдвиги и вращения.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "Новая вкладка"
+              "title": "сдвиги и вращения"
             }
           }
         ]
@@ -176,6 +180,28 @@
       "bases:Создать новую базу": false
     }
   },
+<<<<<<< HEAD
   "active": "a84d3f0cd4a6d31e",
   "lastOpenFiles": []
+=======
+  "active": "e886acf8a660141e",
+  "lastOpenFiles": [
+    "notes/canvases/roadmap masm.canvas",
+    "notes/сдвиги и вращения.md",
+    "notes/логические операции.md",
+    "notes/инструкции условного копирования.md",
+    "notes/canvases",
+    "notes/mov, movsxd и movsx.md",
+    "notes/флаги состояния и условные переходы.md",
+    "notes/сравнение. инструкция cmp.md",
+    "notes/сложение и вычитание.md",
+    "notes/Сегменты.md",
+    "notes/регистры процессора.md",
+    "notes/инструкция jmp.md",
+    "Pasted image 20260409200346.png",
+    "notes/types.md",
+    "notes",
+    "notes.md"
+  ]
+>>>>>>> notes/feature
 }

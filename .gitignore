@@ -1,4 +1,4 @@
-.obsidian
-scripts/bash/core/paths.txt
 build/*
 .cache/*
+local/cfgs/*
+linux_scripts/feature

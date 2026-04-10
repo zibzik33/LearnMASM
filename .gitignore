@@ -1,2 +1,4 @@
-local/cfgs/*
 build/*
+.cache/*
+local/cfgs/*
+linux_scripts/feature

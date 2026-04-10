@@ -28,16 +28,21 @@ function resolve_specific_paths() {
     co_error "JSON is invalid! [${dep_constants_assembly_json}]"
     exit 5
   fi
-  if [[ $(jq '.paths.ml64' ${dep_constants_assembly_json}) == "null" ]]; then
-    co_error ".paths.ml64 field not found"
-    exit 6
-  fi
+  # if [[ $(jq '.paths.ml64' ${dep_constants_assembly_json}) == "null" ]]; then
+  #   co_error ".paths.ml64 field not found"
+  #   exit 6
+  # fi
   dep_constants_ml64=$(jq -r ".paths.ml64" "${dep_constants_assembly_json}")
   dep_add_path "ml64" "${dep_constants_ml64}" "true"
   dep_constants_linker=$(jq -r ".paths.linker" "${dep_constants_assembly_json}")
   dep_add_path "linker" "${dep_constants_linker}" "true"
-  dep_constants_src_dir=$(dep_get_path "src_dir")
+
+
+  dep_constants_libs_dir=$(jq -r ".libs.main_dir_path" "${dep_constants_assembly_json}")
+  dep_add_path "libs_dir" "${dep_constants_libs_dir}" "true"
+
   dep_constants_build_dir=$(dep_get_path "build_dir")
+  dep_constants_src_dir=$(dep_get_path "src_dir")
 }
 
 # $1 == file name (main.asm)
@@ -50,16 +55,24 @@ function mv_obj() {
   return 0
 }
 
+# $1 == path
+# co: \\path\\
+function convert_to_win_path() {
+  local input_path="$1"
+  local win_path="${input_path//\//\\}"
+  echo "$win_path"
+} 
+
 resolve_specific_paths
 # generation of object files
 cd "${dep_constants_src_dir}" || cd_unsuc "${dep_constants_src_dir}"
-wine $(dep_get_path "ml64") /c main.asm
+$(dep_get_path "ml64") /c main.asm
 mv_obj main.obj
 cd - > /dev/null || cd_unsuc_return
 # ====
 
 # linking
 cd "${dep_constants_build_dir}" || cd_unsuc "${dep_constants_build_dir}"
-wine $(dep_get_path "linker") main.obj /subsystem:console /entry:main
+$(dep_get_path "linker") main.obj /subsystem:console /entry:main "$(convert_to_win_path ${dep_constants_libs_dir}/kernel32.Lib)"
 cd - > /dev/null || cd_unsuc_return
 # ====

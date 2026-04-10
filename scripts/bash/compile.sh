@@ -66,13 +66,16 @@ function convert_to_win_path() {
 resolve_specific_paths
 # generation of object files
 cd "${dep_constants_src_dir}" || cd_unsuc "${dep_constants_src_dir}"
-"$(dep_get_path "ml64")" /c main.asm
+pwd
+"$(dep_get_path "ml64")" -c main.asm
+echo "$(dep_get_path "ml64")"
 mv_obj main.obj
 cd - > /dev/null || cd_unsuc_return
 # ====
 
 # linking
 cd "${dep_constants_build_dir}" || cd_unsuc "${dep_constants_build_dir}"
-"$(dep_get_path "linker")" main.obj /subsystem:console /entry:main "$(convert_to_win_path ${dep_constants_libs_dir}/kernel32.Lib)"
+pwd
+"$(dep_get_path "linker")" main.obj -subsystem:console -entry:main "${dep_constants_libs_dir}/kernel32.Lib"
 cd - > /dev/null || cd_unsuc_return
 # ====

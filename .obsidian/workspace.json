@@ -11,10 +11,17 @@
             "id": "e886acf8a660141e",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "Новая вкладка"
+              "type": "canvas",
+              "state": {
+                "file": "notes/canvases/roadmap masm.canvas",
+                "viewState": {
+                  "x": 2492.875852643472,
+                  "y": 2446.830232378386,
+                  "zoom": -1.316473664795254
+                }
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "roadmap masm"
             }
           }
         ]
@@ -179,6 +186,7 @@
   "active": "e886acf8a660141e",
   "lastOpenFiles": [
     "notes/canvases/roadmap masm.canvas",
+    "notes/логические операции.md",
     "notes/инструкции условного копирования.md",
     "notes/canvases",
     "notes/mov, movsxd и movsx.md",

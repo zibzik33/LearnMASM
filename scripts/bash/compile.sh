@@ -38,11 +38,11 @@ function resolve_specific_paths() {
   dep_add_path "linker" "${dep_constants_linker}" "true"
 
 
-  dep_constants_libs_dir=$(jq -r ".libs.main_dir_path" "${dep_constants_assembly_json}")
+  dep_constants_libs_dir="$(jq -r ".libs.main_dir_path" "${dep_constants_assembly_json}")"
   dep_add_path "libs_dir" "${dep_constants_libs_dir}" "true"
 
-  dep_constants_build_dir=$(dep_get_path "build_dir")
-  dep_constants_src_dir=$(dep_get_path "src_dir")
+  dep_constants_build_dir="$(dep_get_path "build_dir")"
+  dep_constants_src_dir="$(dep_get_path "src_dir")"
 }
 
 # $1 == file name (main.asm)
@@ -66,13 +66,13 @@ function convert_to_win_path() {
 resolve_specific_paths
 # generation of object files
 cd "${dep_constants_src_dir}" || cd_unsuc "${dep_constants_src_dir}"
-$(dep_get_path "ml64") /c main.asm
+"$(dep_get_path "ml64")" /c main.asm
 mv_obj main.obj
 cd - > /dev/null || cd_unsuc_return
 # ====
 
 # linking
 cd "${dep_constants_build_dir}" || cd_unsuc "${dep_constants_build_dir}"
-$(dep_get_path "linker") main.obj /subsystem:console /entry:main "$(convert_to_win_path ${dep_constants_libs_dir}/kernel32.Lib)"
+"$(dep_get_path "linker")" main.obj /subsystem:console /entry:main "$(convert_to_win_path ${dep_constants_libs_dir}/kernel32.Lib)"
 cd - > /dev/null || cd_unsuc_return
 # ====

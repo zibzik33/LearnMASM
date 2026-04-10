@@ -34,6 +34,8 @@ function resolve_specific_paths() {
   fi
   dep_constants_ml64=$(jq -r ".paths.ml64" "${dep_constants_assembly_json}")
   dep_add_path "ml64" "${dep_constants_ml64}" "true"
+  dep_constants_linker=$(jq -r ".paths.linker" "${dep_constants_assembly_json}")
+  dep_add_path "linker" "${dep_constants_linker}" "true"
   dep_constants_src_dir=$(dep_get_path "src_dir")
   dep_constants_build_dir=$(dep_get_path "build_dir")
 }
@@ -41,7 +43,7 @@ function resolve_specific_paths() {
 # $1 == file name (main.asm)
 function mv_obj() {
   if [[ ! -e $1 ]]; then
-    co_error 'File not found : "$1"'
+    co_error "File not found : \"${1}\" "
     exit 7
   fi
   mv "$1" "${dep_constants_build_dir}"
@@ -49,8 +51,15 @@ function mv_obj() {
 }
 
 resolve_specific_paths
+# generation of object files
 cd "${dep_constants_src_dir}" || cd_unsuc "${dep_constants_src_dir}"
 wine $(dep_get_path "ml64") /c main.asm
 mv_obj main.obj
-
 cd - > /dev/null || cd_unsuc_return
+# ====
+
+# linking
+cd "${dep_constants_build_dir}" || cd_unsuc "${dep_constants_build_dir}"
+wine $(dep_get_path "linker") main.obj /subsystem:console /entry:main
+cd - > /dev/null || cd_unsuc_return
+# ====

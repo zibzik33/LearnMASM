@@ -53,6 +53,7 @@ function resolve_main_paths() {
   dep_constants_cfgs=$(dep_get_path "cfgs")
   dep_add_path "assembly_json" "${dep_constants_cfgs}/assembly.json" "true"
   dep_add_path "src_dir" "${dep_constants_cwd}/src" "true"
+  dep_add_path "build_dir" "${dep_constants_cwd}/build" "true"
 }
 
 resolve_main_paths # we make magic here :3

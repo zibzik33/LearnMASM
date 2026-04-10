@@ -35,10 +35,22 @@ function resolve_specific_paths() {
   dep_constants_ml64=$(jq -r ".paths.ml64" "${dep_constants_assembly_json}")
   dep_add_path "ml64" "${dep_constants_ml64}" "true"
   dep_constants_src_dir=$(dep_get_path "src_dir")
+  dep_constants_build_dir=$(dep_get_path "build_dir")
+}
+
+# $1 == file name (main.asm)
+function mv_obj() {
+  if [[ ! -e $1 ]]; then
+    co_error 'File not found : "$1"'
+    exit 7
+  fi
+  mv "$1" "${dep_constants_build_dir}"
+  return 0
 }
 
 resolve_specific_paths
+cd "${dep_constants_src_dir}" || cd_unsuc "${dep_constants_src_dir}"
+wine $(dep_get_path "ml64") /c main.asm
+mv_obj main.obj
 
-echo "wine $(dep_get_path ml64) ${dep_constants_src_dir}/main.asm /link /entry:main"
-
-wine '$(dep_get_path "ml64")' "${dep_constants_src_dir}/main.asm /link /entry:main"
+cd - > /dev/null || cd_unsuc_return

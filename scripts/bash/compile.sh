@@ -63,11 +63,17 @@ function convert_to_win_path() {
   echo "$win_path"
 } 
 
-co_suc "Compilation has started"
-
 co_info "We read the compiler configuration and resolve paths..."
 resolve_specific_paths
-co_suc "The required data has been read"
+
+co_info "Deleting old binaries...\n"
+cd "${dep_constants_build_dir}" || cd_unsuc "${dep_constants_build_dir}"
+cd .. || exit 101
+rm -rf build/*
+cd - > /dev/null || cd_unsuc_return
+
+co_suc "Compilation has started"
+
 # generation of object files
 co_info "Generation of object files..."
 cd "${dep_constants_src_dir}" || cd_unsuc "${dep_constants_src_dir}"

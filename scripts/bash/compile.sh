@@ -63,19 +63,42 @@ function convert_to_win_path() {
   echo "$win_path"
 } 
 
+co_suc "Compilation has started"
+
+co_info "We read the compiler configuration and resolve paths..."
 resolve_specific_paths
+co_suc "The required data has been read"
 # generation of object files
+co_info "Generation of object files..."
 cd "${dep_constants_src_dir}" || cd_unsuc "${dep_constants_src_dir}"
-pwd
 "$(dep_get_path "ml64")" -c main.asm
-echo "$(dep_get_path "ml64")"
+ml64_exit_code=$?
+if [[ $ml64_exit_code != 0 ]]; then
+  co_error "An error occurred while generating object files" 
+  exit 8
+fi
 mv_obj main.obj
 cd - > /dev/null || cd_unsuc_return
+co_suc "Object files successfully created"
 # ====
 
 # linking
+co_info "Linking..."
 cd "${dep_constants_build_dir}" || cd_unsuc "${dep_constants_build_dir}"
-pwd
-"$(dep_get_path "linker")" main.obj -subsystem:console -entry:main "${dep_constants_libs_dir}/kernel32.Lib"
+os_name=$(uname -s)
+kernel32_path=""
+if [[ "${os_name}" == "Linux" ]]; then
+  kernel32_path="$(convert_to_win_path ${dep_constants_libs_dir}/kernel32.Lib)"
+else
+  kernel32_path="${dep_constants_libs_dir}/kernel32.Lib"
+fi
+"$(dep_get_path "linker")" main.obj -subsystem:console -entry:main "${kernel32_path}" 
+linking_exit_code=$?
+if [[ $linking_exit_code != 0 ]]; then
+  co_error "An error occurred at the linking stage" 
+  exit 9
+fi
+co_suc "The linking was successful"
 cd - > /dev/null || cd_unsuc_return
 # ====
+co_suc "Compilation completed successfully :3"
